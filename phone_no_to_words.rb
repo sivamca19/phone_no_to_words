@@ -55,6 +55,6 @@ class PhoneNoToWords
         results << words
       end
     end
-    results
+    results << (character_arrays.shift.product(*character_arrays).map(&:join) & dictionary[10]).join(', ')
   end
 end
