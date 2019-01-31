@@ -15,7 +15,7 @@ The phone number mapping to letters is as follows:
 9 = w x y z
 ```
 
-The phone numbers will never contain a 0 or 1. 
+The phone numbers will never contain a 0 or 1.
 Words have to be at least 3 characters.
 
 To get give you an initial verification, the following must be true:
@@ -24,3 +24,11 @@ To get give you an initial verification, the following must be true:
 2282668687 should return the following list [["act", "amounts"], ["act", "contour"], ["acta", "mounts"], ["bat", "amounts"], ["bat", "contour"], ["cat", "contour"], "catamounts"]
 
 The conversion of a 10 digit phone number should be performed within 1000ms.
+
+# To run the code
+** ruby phone_no_to_words.rb **
+
+# To run the test case
+** rspec spec/phone_no_to_words_spec.rb **
+
+Make sure you have installed rspec gem before running the test case
