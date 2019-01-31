@@ -26,9 +26,9 @@ To get give you an initial verification, the following must be true:
 The conversion of a 10 digit phone number should be performed within 1000ms.
 
 # To run the code
-** ruby phone_no_to_words.rb **
+**ruby phone_no_to_words.rb**
 
 # To run the test case
-** rspec spec/phone_no_to_words_spec.rb **
+**rspec spec/phone_no_to_words_spec.rb**
 
 Make sure you have installed rspec gem before running the test case
