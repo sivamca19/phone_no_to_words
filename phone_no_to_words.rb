@@ -1,7 +1,7 @@
 require 'byebug'
 ERROR_MSG = "Can't generate words: As length may be greater or lesser than 10 (or) phone number has 0 or 1 values".freeze
 class PhoneNoToWords
-  attr_accessor :number_key_mapping
+  attr_accessor :number_key_mapping, :dictionary
   def initialize
     @number_key_mapping = {
       '2' => %w[a b c],
@@ -13,6 +13,20 @@ class PhoneNoToWords
       '8' => %w[t u v],
       '9' => %w[w x y z]
     }
+    @dictionary = load_dictionary
+  end
+
+  def load_dictionary
+    words = {}
+    File.foreach('dictionary.txt') do |word|
+      word = word.chop.to_s.downcase
+      if words[word.length]
+        words[word.length] << word
+      else
+        words[word.length] = [word]
+      end
+    end
+    words
   end
 
   def is_valid_no(phone_no)
@@ -24,6 +38,7 @@ class PhoneNoToWords
     character_arrays = phone_number.chars.map { |digit| number_key_mapping[digit] }
     character_arrays_lng = character_arrays.length - 1
     results = []
+    compared_hash = {}
     for i in (2..character_arrays_lng - 2)
       temp_split_array = []
       temp_split_array << character_arrays[0..i]
@@ -35,7 +50,10 @@ class PhoneNoToWords
       next if temp_combinate_array.first.nil?
       temp_combinate_array << temp_split_array.last.shift.product(*temp_split_array.last).map(&:join)
       next if temp_combinate_array.last.nil?
-      results << temp_combinate_array
+      compared_hash[i] = [(temp_combinate_array.first & dictionary[i + 1]), (temp_combinate_array.last & dictionary[character_arrays_lng - i])]
+      compared_hash[i].first.product(compared_hash[i].last).each do |words|
+        results << words
+      end
     end
     results
   end

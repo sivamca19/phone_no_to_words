@@ -25,9 +25,15 @@ describe PhoneNoToWords do
       expect(@words.generate_words('66867878255')).to eq(ERROR_MSG)
     end
 
-    it 'return nil for valid number' do
+    it 'return array of words for valid number' do
       expect(@words.generate_words('6686787825')).to be_an_instance_of(Array)
       expect(@words.generate_words('2282668687')).to be_an_instance_of(Array)
+
+      expect(@words.generate_words('6686787825').first).to include('noun')
+      expect(@words.generate_words('6686787825').last).to eq('motortruck')
+
+      expect(@words.generate_words('2282668687').first).to include('act')
+      expect(@words.generate_words('2282668687').last).to eq('catamounts')
     end
   end
 end
