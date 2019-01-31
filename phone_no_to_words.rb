@@ -58,3 +58,7 @@ class PhoneNoToWords
     results << (character_arrays.shift.product(*character_arrays).map(&:join) & dictionary[10]).join(', ')
   end
 end
+beginning_time = Time.now
+PhoneNoToWords.new.generate_words('6686787825')
+end_time = Time.now
+puts "Time elapsed #{(end_time - beginning_time) * 1000} milliseconds"
