@@ -26,8 +26,8 @@ describe PhoneNoToWords do
     end
 
     it 'return nil for valid number' do
-      expect(@words.generate_words('6686787825')).to be_nil
-      expect(@words.generate_words('2282668687')).to be_nil
+      expect(@words.generate_words('6686787825')).to be_an_instance_of(Array)
+      expect(@words.generate_words('2282668687')).to be_an_instance_of(Array)
     end
   end
 end
