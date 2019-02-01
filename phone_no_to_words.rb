@@ -1,3 +1,4 @@
+require 'benchmark'
 ERROR_MSG = "Can't generate words: As length may be greater or lesser than 10 (or) phone number has 0 or 1 values".freeze
 class PhoneNoToWords
   attr_accessor :number_key_mapping, :dictionary
@@ -55,9 +56,9 @@ class PhoneNoToWords
       end
     end
     results << (character_arrays.shift.product(*character_arrays).map(&:join) & dictionary[10]).join(', ')
+    puts results
+    results
   end
 end
-beginning_time = Time.now
-puts PhoneNoToWords.new.generate_words('6686787825')
-end_time = Time.now
-puts "Time elapsed #{(end_time - beginning_time) * 1000} milliseconds"
+
+p Benchmark.measure { PhoneNoToWords.new.generate_words('6686787825') }.to_s
