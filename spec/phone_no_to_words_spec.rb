@@ -13,6 +13,8 @@ describe PhoneNoToWords do
       expect(@words.is_valid_no('')).to be(false)
       expect(@words.is_valid_no('1282068681')).to be(false)
       expect(@words.is_valid_no('66867878255')).to be(false)
+      expect(@words.is_valid_no('abcdefghij')).to be(false)
+      expect(@words.is_valid_no('a668678782b')).to be(false)
     end
   end
 
