@@ -31,7 +31,10 @@ $ cd phone_no_to_words
 $ bundle install
 ```
 # To run the code
-**ruby phone_no_to_words.rb**
-
+```ruby
+ruby phone_no_to_words.rb
+```
 # To run the test case
-**rspec spec/phone_no_to_words_spec.rb**
+```ruby
+rspec spec/phone_no_to_words_spec.rb**
+```
