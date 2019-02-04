@@ -24,11 +24,12 @@ To get give you an initial verification, the following must be true:
 2282668687 should return the following list [["act", "amounts"], ["act", "contour"], ["acta", "mounts"], ["bat", "amounts"], ["bat", "contour"], ["cat", "contour"], "catamounts"]
 
 The conversion of a 10 digit phone number should be performed within 1000ms.
-
+# To setup
+** $ git clone https://github.com/sivamca19/phone_no_to_words.git
+** $ cd phone_no_to_words
+** $ bundle install
 # To run the code
 **ruby phone_no_to_words.rb**
 
 # To run the test case
 **rspec spec/phone_no_to_words_spec.rb**
-
-Make sure you have installed rspec gem before running the test case
